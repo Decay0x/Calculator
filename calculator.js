@@ -57,10 +57,10 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
         clearAll()
     } else if (btn.id=="backspace") {
         display.textContent = display.textContent.slice(0,-1)
+        displayHolder = new Array(display.textContent);
     } else if (btn.id == "equal" || btn.id=="plus" || btn.id == "minus" || btn.id=="divide" || btn.id=="times" || btn.id=="percentage"){
         if(btn.id=="percentage"){
             display.textContent = Number(display.textContent)/100
-            displayHolder.push(display.textContent);
         }
         operantHolder.push(display.textContent)
         switch (btn.id){
