@@ -71,9 +71,6 @@ body{
     border:0.1px solid #fff;
     border-radius: 5px;
 }
-.btn1:nth-child(1){
- flex: 5;
-}
 .btn5:nth-child(1){
     flex:5;
 }
