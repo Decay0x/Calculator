@@ -55,6 +55,8 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
     }
     if (btn.id == "clear") {
         clearAll()
+    } else if (btn.id=="backspace") {
+        display.textContent = display.textContent.slice(0,-1)
     } else if (btn.id == "equal" || btn.id=="plus" || btn.id == "minus" || btn.id=="divide" || btn.id=="times" || btn.id=="percentage"){
         if(btn.id=="percentage"){
             display.textContent = Number(display.textContent)/100
@@ -64,24 +66,24 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
         switch (btn.id){
             case "equal" :
                 console.log(operantHolder)
-                if(operantHolder.length <= 1){
+                if(operantHolder.length <= 1 || operantHolder.length >=3){
                   alert("Check your Inputs") 
                   clearAll()
-                } 
-                operantA = Number(operantHolder[0])
-                operantB = Number(operantHolder[1])
-                operator(operantA,operantB, eval);
-                operantHolder = []
-                operantA = null;
-                operantB = null;
+                } else {
+                    operantA = Number(operantHolder[0])
+                    operantB = Number(operantHolder[1])
+                    operator(operantA,operantB, eval);
+                    operantHolder = []
+                    operantA = null;
+                    operantB = null;
+                }
                 break;
                 case "plus" :
                     eval = "add";
                     displayHolder.push(display.textContent);
-                    
-               displayHolder=[]
-               break;
-               case "minus":
+                    displayHolder=[]
+                break;
+                case "minus":
                    eval = "subtract";
                    displayHolder.push(display.textContent);
                    displayHolder=[]
@@ -98,7 +100,8 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
                         }
                     }else {
                         displayHolder.push(btn.textContent);
-                        display.textContent = displayHolder.join("");
+                        display.textContent = displayHolder.join(""); 
+                        display.textContent.includes(".") ?
+                        document.getElementById("point").disabled = true: document.getElementById("point").disabled = false;
                     }
-                    console.log(displayHolder)
 })})
