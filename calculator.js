@@ -23,10 +23,10 @@ const num0 = document.getElementById("num0")
 const point = document.getElementById("point")
 const equal = document.getElementById("equal");
 
-const add = (a,b) => (a + b)
-const subtract = (a,b) => (a-b)
-const multiply = (a,b) => (a*b)
-const divide = (a,b) => b==0 ? display.textContent="Back to school" : (a/b)
+const add = (a,b) => Math.round((a + b)*1000)/1000
+const subtract = (a,b) => Math.round((a-b)*1000)/1000
+const multiply = (a,b) => Math.round((a*b)*1000)/1000
+const divide = (a,b) => b==0 ? display.textContent="Back to school" : Math.round((a/b)*1000)/1000
 const clearAll = ()=>{
     operantHolder=[];
     operantA = null;
