@@ -1,27 +1,12 @@
 const display = document.getElementById("numbersDisplay")
+const clear = document.getElementById("clear")
+const btns = document.querySelectorAll("button")
+
 let displayHolder= [];
 let operantA = 0;
 let operantB = 0;
 let eval;
 let operantHolder=[];
-const clear = document.getElementById("clear")
-const percentage = document.getElementById("percentage")
-const divideSlash = document.getElementById("divide")
-const num7 = document.getElementById("num7")
-const num8 = document.getElementById("num8") 
-const num9 = document.getElementById("num9")
-const times = document.getElementById("times")
-const num4 = document.getElementById("num4")
-const num5 = document.getElementById("num5")
-const num6 = document.getElementById("num6")
-const minus = document.getElementById("minus")
-const num1 = document.getElementById("num1")
-const num2 = document.getElementById("num2")
-const num3 = document.getElementById("num3")
-const plus = document.getElementById("plus")
-const num0 = document.getElementById("num0")
-const point = document.getElementById("point")
-const equal = document.getElementById("equal");
 
 const add = (a,b) => Math.round((a + b)*1000)/1000
 const subtract = (a,b) => Math.round((a-b)*1000)/1000
@@ -48,8 +33,7 @@ const operator = (a,b, eval) => {
     }
 }
 
-const btns = document.querySelectorAll("button")
-btns.forEach(btn=>{btn.addEventListener("click", ()=>{
+const calculate = (btn)=>{
     if(display.textContent === "Back to school"){
         clearAll()
     }
@@ -104,5 +88,8 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
                         display.textContent = displayHolder.join(""); 
                         display.textContent.includes(".") ?
                         document.getElementById("point").disabled = true: document.getElementById("point").disabled = false;
-                    }
+}}
+ 
+btns.forEach(btn=>{btn.addEventListener("click", ()=>{
+    calculate(btn)
 })})

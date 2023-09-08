@@ -33,6 +33,7 @@ body{
     justify-content: flex-end;
     width: 80%;
     max-width: 400px;
+    min-width: 252px;
     min-height:3rem;
 }
 .calcDisCont{
