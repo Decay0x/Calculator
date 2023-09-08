@@ -27,6 +27,7 @@ const add = (a,b) => Math.round((a + b)*1000)/1000
 const subtract = (a,b) => Math.round((a-b)*1000)/1000
 const multiply = (a,b) => Math.round((a*b)*1000)/1000
 const divide = (a,b) => b==0 ? display.textContent="Back to school" : Math.round((a/b)*1000)/1000
+
 const clearAll = ()=>{
     operantHolder=[];
     operantA = null;
@@ -50,8 +51,7 @@ const operator = (a,b, eval) => {
 const btns = document.querySelectorAll("button")
 btns.forEach(btn=>{btn.addEventListener("click", ()=>{
     if(display.textContent === "Back to school"){
-        display.textContent = 0
-        displayHolder = []
+        clearAll()
     }
     if (btn.id == "clear") {
         clearAll()
@@ -61,7 +61,7 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
     } else if (btn.id == "equal" || btn.id=="plus" || btn.id == "minus" || btn.id=="divide" || btn.id=="times" || btn.id=="percentage"){
         if(btn.id=="percentage"){
             display.textContent = Number(display.textContent)/100
-        }
+        } else {
         operantHolder.push(display.textContent)
         switch (btn.id){
             case "equal" :
@@ -98,6 +98,7 @@ btns.forEach(btn=>{btn.addEventListener("click", ()=>{
                            displayHolder.push(display.textContent);
                            displayHolder=[]
                         }
+                    }
                     }else {
                         displayHolder.push(btn.textContent);
                         display.textContent = displayHolder.join(""); 
